@@ -1,0 +1,65 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    margin-top: 150px;
+  }
+  
+  .login-cat-icon {
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .login-text {
+    font-family: 'Gamja Flower';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 18px;
+    margin-bottom: 30px;
+
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-bottom: 20px;
+  }
+  
+  .login-input{
+    padding: 10px;
+    width: 250px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  .login-btn{
+  display: flex; 
+  width: 126px;
+  height: 30px;
+  background: #BBB5B0;
+  border-radius: 10px;
+  justify-content: center; 
+  align-items: center; 
+  color: white;
+  text-decoration: none; 
+  font-size: 18px;
+  }
+  
+  .footer-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 250px; 
+  }
+  
+  .footer-link {
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+  }

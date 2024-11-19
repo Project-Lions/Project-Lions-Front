@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+
+}
+
+.login-icon {
+  padding: 8px 12px;
+  border-radius: 5px;  
+  margin-left: auto;
+  cursor: pointer;
+}
+
