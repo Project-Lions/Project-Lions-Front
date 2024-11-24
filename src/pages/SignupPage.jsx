@@ -102,7 +102,7 @@ const SignupPage = () => {
                     </button>
                 </label>
                 <input
-                    className='signup-input'
+                    className='login-input'
                     type="email"
                     name="id"
                     value={formData.id}
@@ -114,7 +114,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>PW:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="password"
             name="password"
             value={formData.password}
@@ -131,7 +131,7 @@ const SignupPage = () => {
             </button>
         </label>
         <input
-            className='signup-input'
+            className='login-input'
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -143,7 +143,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>이름:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="text"
             name="name"
             value={formData.name}
@@ -155,7 +155,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>닉네임:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="text"
             name="nickname"
             value={formData.nickname}
@@ -167,7 +167,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>주소:</label>
           <input
-           className='signup-input'
+           className='login-input'
             type="text"
             name="address"
             value={formData.address}

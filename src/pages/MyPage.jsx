@@ -38,18 +38,23 @@ const MyPage = () => {
   };
 
   const handleButtonClick = (action) => {
-    
     alert(`${action} 버튼 클릭!`);
+  };
+
+  const handleLogout = () => {
+    // 로그아웃 처리
+    localStorage.removeItem('userInfo'); // 로컬스토리지에서 사용자 정보 제거
+    navigate('/'); // 메인 페이지로 이동
   };
 
   return (
     <div className="mypage-container">
-      <h1 className="mypage-title">마이페이지</h1>
+      <h1 className="signup-title">마이페이지</h1>
 
 
       <div className="profile-section">
         <img
-          src={userInfo.profileImage || 'default-image-url.jpg'}
+          src={userInfo.profileImage || 'logo192.png'}
           alt="프로필 사진"
           className="profile-image"
         />
@@ -65,25 +70,25 @@ const MyPage = () => {
 
       <div className="user-info">
         <div className="info-item">
-          <label>닉네임:</label>
-          <input type="text" value={userInfo.nickname} readOnly />
+            <label>닉네임:</label>
+            <span className="info-text">{userInfo.nickname}</span>
         </div>
         <div className="info-item">
-          <label>ID:</label>
-          <input type="email" value={userInfo.id} readOnly />
+            <label>ID:</label>
+            <span className="info-text">{userInfo.id}</span>
         </div>
-      </div>
+        </div>
 
 
       <div className="button-group">
-        <button onClick={() => handleButtonClick('버튼 1')} className="action-button">
-          버튼 1
+      <button onClick={() => handleButtonClick('찜한 소품샵')} className="login-input">
+          찜한 소품샵
         </button>
-        <button onClick={() => handleButtonClick('버튼 2')} className="action-button">
-          버튼 2
+        <button onClick={handleLogout} className="login-input">
+          로그아웃
         </button>
-        <button onClick={() => handleButtonClick('버튼 3')} className="action-button">
-          버튼 3
+        <button onClick={() => handleButtonClick('회원탈퇴')} className="logout-btn">
+        회원탈퇴
         </button>
       </div>
     </div>

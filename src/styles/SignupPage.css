@@ -13,18 +13,24 @@
 
 .signup-form {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  width: 270px;
 }
 
-.label{
+.form-group label{
 display: flex;
+margin-bottom: 10px;
+}
+
+.signup-input{
+  height: 40px;
 }
 
 .check-button {
@@ -33,8 +39,10 @@ display: flex;
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
-  margin-left:auto;
+  margin-left:10%;
   border-radius: 10px;
+width: 73px;
+height: 30px;
 }
 
 .check-button:hover {
@@ -42,7 +50,7 @@ display: flex;
 }
 
 .submit-button {
-  width: 100%;
+  width: 70%;
   padding: 10px;
   background-color: #BBB5B0;
   color: white;
