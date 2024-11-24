@@ -4,6 +4,7 @@
     margin: 0 auto;
     text-align: center;
     align-items: center;
+    font-family: 'Gamja Flower';
 
   }
   
@@ -39,8 +40,8 @@
   }
   
   .user-info {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   
   .info-item {
@@ -49,7 +50,7 @@
     margin-bottom: 10px;
     justify-content: center;
   }
-  
+
   .info-item label {
     font-weight: bold;
     margin-bottom: 5px;
@@ -57,7 +58,7 @@
   }
   
   .info-item input {
-    width: 100%;
+    width: 20%;
     padding: 8px;
     font-size: 1rem;
     border:none;
@@ -70,13 +71,32 @@
     gap: 10px;
     width: 270px;
     align-items: center;
+    justify-content: center; /* 수직 중앙 정렬 */
+    margin: 0 auto; /* 부모의 가운데 정렬 */
   }
   
   .logout-btn{
     padding: 10px;
     width: 250px;
     background: #BBB5B0;
-    box-shadow: 0px 4px 4px;
+    box-shadow: 0px 2px 2px #BBB5B0;
     border-radius: 10px;
     font-size: 16px;
+    border: none;
+    color: white;
+
+
+  }
+  .image-upload-button{
+    background: #BBB5B0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+  }
+  .nick-edit-button{
+    background: #BBB5B0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-left: 10px;
   }

@@ -1,0 +1,40 @@
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #BBB5B0;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+  
+  .footer-button {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .footer-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-button p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: row;
+      padding: 15px;
+    }
+  
+    .footer-button {
+      margin-bottom: 15px;
+    }
+  }
+  

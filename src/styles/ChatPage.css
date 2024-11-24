@@ -3,6 +3,8 @@
     max-width: 400px;  
     margin: 0 auto;
     text-align: center;  
+    font-family: 'Gamja Flower';
+
   }
 
 .chat-icon {
@@ -11,27 +13,27 @@
  
 .hr1 {
     border: none;
-    border-top: 1px solid black; /* 구분선 스타일 */
-    margin: 20px 0 ; /* 상단 여백 */
+    border-top: 1px solid black; 
+    margin: 20px 0 ; 
   }
 
 .hr2{
-    border-top: 1px solid black; /* 구분선 스타일 */
+    border-top: 1px solid black; 
 }
 
 
 .chat-input{
     height: 400px;
-    align-items: center;         /* 수직 가운데 정렬 */
+    align-items: center;        
     padding: 15px;
-    margin-bottom: 30px; /* 입력창 하단 여백 */
+    margin-bottom: 30px; 
 }
 .chat-input input{
 width: 260px;
 height: 40px;
 background: #FFFFFF;
 border-radius: 15px;
-border: 2px solid black;  /* 입력창에 검정색 테두리 추가 */
+border: 2px solid black;  
 
 }
 .send-button{
@@ -68,6 +70,6 @@ border: 2px solid black;  /* 입력창에 검정색 테두리 추가 */
 
 .message.bot {
   background-color: #ffffff;
-  margin-right: auto;         /* 왼쪽으로 정렬 */
-  text-align: left;           /* 텍스트 왼쪽 정렬 */
+  margin-right: auto;         
+  text-align: left;       
 }

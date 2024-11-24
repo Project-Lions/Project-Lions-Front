@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위한 훅
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import { ReactComponent as MainIcon } from '../images/main.svg';
 import '../styles/MainPage.css';
 
@@ -25,12 +27,9 @@ function MainPage() {
       <main className="main-content">
        <MainIcon className="main-image" onClick={handleIconClick} />
 
-        <div className="button-container">
-          <button className="main-button">주변 소품샵 정보</button>
-          <button className="main-button">찜한 소품샷</button>
-          <button className="main-button">채팅</button>
-        </div>
       </main>
+      <Footer />
+
     </div>
   );
 }

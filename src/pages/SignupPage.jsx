@@ -80,6 +80,14 @@ const SignupPage = () => {
 
       if (response.isSuccess) {
         alert(response.message || '회원가입 성공!');
+        // 사용자 정보 로컬스토리지에 저장
+        localStorage.setItem('userInfo', JSON.stringify({
+          id: formData.id,
+          password: formData.password,
+          name: formData.name,
+          nickname: formData.nickname,
+        }));
+
         navigate('/login');
       } else {
         alert(response.message || '회원가입 실패! 다시 시도해주세요.');
