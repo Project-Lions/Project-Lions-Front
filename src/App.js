@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { LoginPage, SignupPage,  MainPage, MyPage} from "./routes/Routes.js";
+import { LoginPage, SignupPage,  MainPage, MyPage, AccentShops,CurrentLocationPage} from "./routes/Routes.js";
 
 
 function App() {
@@ -13,6 +13,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/accentshops" element={<AccentShops />} />
+          <Route path="/currentlocationpage" element={<CurrentLocationPage />} />
 
 
         </Routes>
