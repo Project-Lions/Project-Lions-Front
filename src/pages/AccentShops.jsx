@@ -12,9 +12,9 @@ function AccentShops() {
 
   return (
     <div className='Accentshops-container'>
-      <div className='Backarrow-container'>
-        <img className='arrow' alt='icon' src={arrowBackIcon} />
-      </div>
+        <div className='Backarrow-container' onClick={() => navigate(-1)}>
+            <img className='arrow' alt='icon' src={arrowBackIcon} />
+        </div>
       <div className='Accentshops-top-container'>
         <img className='rabbit' alt='r' src={rabbitIcon} />
       </div>
@@ -27,12 +27,10 @@ function AccentShops() {
           onClick={handleNavigate} 
         >
           <img className='map' alt='r' src={mapLocationIcon} />
-          <a>현재 위치로 찾아보기!</a>
+          <div className='text2'><a>현재 위치로 찾아보기!</a></div>
         </div>
         <div className='text-container3'>
           <div className='form-container'>
-            <form className='search'>주변 검색</form>
-            <img className='searc' alt='r' src={searchIcon} />
           </div>
           <a>직접 찾아보기!</a>
         </div>

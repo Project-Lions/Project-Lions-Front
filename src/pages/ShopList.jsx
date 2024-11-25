@@ -8,6 +8,7 @@ import Frame4 from '../images/Frame-4.png';
 import Frame5 from '../images/Frame-5.png';
 import arrowBackIcon from '../images/arrow-back.png'; 
 import '../styles/ShopList.css'
+import { useNavigate } from 'react-router-dom';
 
 const tagImageMap = {
   '힐링': Frame,
@@ -20,6 +21,7 @@ const tagImageMap = {
 
 const ShopList = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
 
   const shops = location.state?.shops || []; 
@@ -31,9 +33,9 @@ const ShopList = () => {
 
   return (
   <div className='shoplist-maincontainer'>
-    <div className='Backarrow-container'>
-      <img className='arrow' alt='icon' src={arrowBackIcon} />
-    </div>
+        <div className='Backarrow-container' onClick={() => navigate(-1)}>
+            <img className='arrow' alt='icon' src={arrowBackIcon} />
+        </div>
       <div className='content-container'>   
         <div className='tag-container'>
           <img className ='image'

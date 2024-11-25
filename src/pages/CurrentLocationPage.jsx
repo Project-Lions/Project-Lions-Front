@@ -153,9 +153,9 @@ function CurrentLocationPage() {
 
   return (
     <div className='main-container'>
-      <div className='Backarrow-container'>
-        <img className='arrow' alt='icon' src={arrowBackIcon} />
-      </div>
+        <div className='Backarrow-container' onClick={() => navigate(-1)}>
+            <img className='arrow' alt='icon' src={arrowBackIcon} />
+        </div>
       <div className='location-container'>
         <div id="map" style={{ width: '98%', height: '60%' }}></div>
         <div className='current-bottom-container'>
