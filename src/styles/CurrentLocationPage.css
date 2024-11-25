@@ -1,0 +1,89 @@
+
+
+.main-container{
+    width: 375px;
+    height: 812px;
+    display: flex;
+    justify-content: center;
+}
+.location-container{
+    width: 340px ;
+    height: 690px;
+    margin-top: 10%;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+#map{
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.current-text-container1, .current-text-container2, .current-img-container {
+    font-family: 'Gamja Flower', cursive;
+}
+
+.current-text-container1{
+    width: 90%;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    margin: 5%;
+}
+
+.current-text-container2{
+    width: 90%;
+    font-size: 18px;
+    justify-content: center;
+    display: flex;
+    margin: 5%;
+}
+.current-img-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;        /* 컨테이너의 높이 설정 */
+    font-size: 30%;     /* 폰트 크기를 상대적으로 설정 */
+    align-items: center; /* 모든 자식 요소를 가로축 중앙에 배치 */
+    justify-content: space-evenly; /* 자식 요소들을 세로축에 걸쳐 고르게 배치 
+    */
+    gap: 5px;
+}
+.frame{
+    margin: 2px;
+    width: 80px;
+    height: 50px;
+}
+
+.frame2{
+    margin: 2px;
+    width: 130px;
+    height: 50px;
+    z-index: -1;
+}
+
+.inside-img-container1 {
+    display: flex;
+    width: 85%;
+    justify-content: space-around; /* 요소 주위에 동일한 간격 배치 */
+}
+.inside-text-container1{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.inside-text-container2{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+.inside-img-container2 {
+    display: flex;
+    width: 85%;
+    justify-content: space-around; /* 요소 주위에 동일한 간격 배치 */
+}

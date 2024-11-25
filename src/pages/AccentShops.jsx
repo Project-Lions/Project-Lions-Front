@@ -38,7 +38,7 @@ function AccentShops() {
         </div>
       </div>
       <div className='map-container'>
-        <img className='map' alt='r' src={rabbit2Icon} />
+        <img className='rabbit' alt='r' src={rabbit2Icon} />
       </div>
     </div>
   );

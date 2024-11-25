@@ -33,7 +33,7 @@ flex-shrink: 0;
 
 .Accentshops-main-container {
   width: 100%;
-  height: 55%;
+  height: 65%;
   display: flex; 
   flex-direction: column; 
   justify-content: space-evenly; 
