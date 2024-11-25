@@ -13,8 +13,10 @@ const Footer = () => {
         <p>주변 소품샵 정보</p>
       </div>
       <div className="footer-button">
+        <Link to="/marked" className="footer-link">
         <img src={icon2} alt="아이콘 2" className="footer-icon" />
         <p>찜한 소품샵</p>
+        </Link>
       </div>
       <div className="footer-button">
       <Link to="/chatpage" className="footer-link">

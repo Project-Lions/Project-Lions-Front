@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { LoginPage, SignupPage,  MainPage, MyPage, ChatPage} from "./routes/Routes.js";
+import { LoginPage, SignupPage,  MainPage, MyPage, ChatPage, MarkedShop, ShopDetail} from "./routes/Routes.js";
 
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/chatpage" element={<ChatPage />} />
+          <Route path="/marked" element={<MarkedShop />} />
+          <Route path="/details" element={<ShopDetail />} />
 
 
         </Routes>
