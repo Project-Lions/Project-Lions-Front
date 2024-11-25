@@ -5,6 +5,7 @@
     height: 812px;
     display: flex;
     justify-content: center;
+    background-image: url('../images/background.png');
 }
 .location-container{
     width: 340px ;

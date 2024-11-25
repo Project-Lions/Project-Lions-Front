@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { LoginPage, SignupPage,  MainPage, MyPage, AccentShops,CurrentLocationPage} from "./routes/Routes.js";
+import { LoginPage, SignupPage,  MainPage, MyPage, AccentShops,CurrentLocationPage,ShopList} from "./routes/Routes.js";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/accentshops" element={<AccentShops />} />
           <Route path="/currentlocationpage" element={<CurrentLocationPage />} />
-
+          <Route path="/shop-list" element={<ShopList />} />
 
         </Routes>
       </div>
