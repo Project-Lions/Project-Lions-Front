@@ -62,19 +62,42 @@ function CurrentLocationPage() {
 
     const map = new kakao.maps.Map(container, options);
 
-    // 커스텀 마커 이미지를 사용하여 마커 생성
     const imageSize = new kakao.maps.Size(24, 35); // 이 부분은 실제 이미지 크기에 맞게 조정해야 합니다.
     const imageOption = { offset: new kakao.maps.Point(12, 35) }; // 오프셋은 이미지의 어느 부분이 위치를 가리킬지 정합니다.
     const markerImageObject = new kakao.maps.MarkerImage(markerImage, imageSize, imageOption);
 
     const markerPosition = new kakao.maps.LatLng(lat, lng);
-    const marker = new kakao.maps.Marker({
+    const customMarker = new kakao.maps.Marker({
       position: markerPosition,
       image: markerImageObject
     });
-    marker.setMap(map);
-
-    // 지도 중심 변경 이벤트 처리
+    customMarker.setMap(map);
+    searchNearbyShops(map);
+    function searchNearbyShops(map) {
+      const ps = new kakao.maps.services.Places();
+      ps.keywordSearch('소품샵', (data, status) => {
+        if (status === kakao.maps.services.Status.OK) {
+          data.forEach(place => {
+            displayMarker(map, place);
+          });
+        }
+      });
+    }
+    
+    function displayMarker(map, place) {
+      // 기본 마커를 생성하고 지도에 표시합니다
+    var marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(place.y, place.x)
+    });
+  
+    // 마커 클릭 시 정보 표시
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+    kakao.maps.event.addListener(marker, 'click', () => {
+      infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+      infowindow.open(map, marker);
+    });
+  }
     kakao.maps.event.addListener(map, 'center_changed', () => {
       const center = map.getCenter();
       setCenterCoords({ lat: center.getLat(), lng: center.getLng() });
