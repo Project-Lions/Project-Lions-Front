@@ -6,95 +6,94 @@ import buttonImage from '../images/arrow_back.png';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
-    id: '',
+    email: '',
     password: '',
-    confirmPassword: '',
     name: '',
-    nickname: '',
+    phone: '',
     address: '',
   });
-  const [isPasswordMatch, setIsPasswordMatch] = useState(false); // 비밀번호 일치 여부
+
+  const [isLoading, setIsLoading] = useState(false); // 로딩 상태
+  const [error, setError] = useState(''); // 에러 메시지
 
   const navigate = useNavigate();
 
+  // 입력 필드 변경 처리
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // 입력 변화 시 관련 상태 초기화
-    if (name === 'confirmPassword') setIsPasswordMatch(false); // 비밀번호 확인 초기화
   };
 
-  const handlePasswordCheck = () => {
-    if (formData.password === formData.confirmPassword) {
-      alert('비밀번호 일치!');
-      setIsPasswordMatch(true);
-    } else {
-      alert('비밀번호가 일치하지 않습니다.');
-      setIsPasswordMatch(false);
-    }
-  };
-
+  // 회원가입 처리
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // 비밀번호 일치 여부 확인
-    if (!isPasswordMatch) {
-      alert('비밀번호 확인을 완료해주세요.');
+    // 비밀번호 확인
+    if (formData.password !== formData.confirmPassword) {
+      setError('비밀번호가 일치하지 않습니다.');
       return;
     }
 
-    try {
-      const response = await sign({
-        name: formData.name,
-        profile_image: '', // 프로필 이미지는 생략
-        login_type: 'default',
-        email: formData.id,
-      });
+    setIsLoading(true);
+    setError('');
 
-      if (response.isSuccess) {
-        alert(response.message || '회원가입 성공!');
-        // 사용자 정보 로컬스토리지에 저장
-        localStorage.setItem('userInfo', JSON.stringify({
-          id: formData.id,
+    try {
+      // 여기에서 Fetch API를 호출
+      const response = await fetch('/api/members', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
           password: formData.password,
           name: formData.name,
-          nickname: formData.nickname,
-        }));
+          phone: formData.phone,
+          address: formData.address,
+        }),
+      });
 
-        navigate('/login');
+      const result = await response.json();
+
+      if (result.isSuccess) {
+        alert(result.message || '회원가입 성공!');
+        navigate('/login'); // 회원가입 후 로그인 화면으로 이동
       } else {
-        alert(response.message || '회원가입 실패! 다시 시도해주세요.');
+        setError(result.message || '회원가입에 실패했습니다.');
       }
-    } catch (error) {
-      alert('회원가입 요청에 실패했습니다. 다시 시도해주세요.');
+    } catch (err) {
+      setError('서버 요청에 실패했습니다. 다시 시도해주세요.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="signup-container">
+      {/* 뒤로 가기 버튼 */}
       <button onClick={() => navigate(-1)} className="backButton">
-        <img src={buttonImage} alt="back-button"/>
+        <img src={buttonImage} alt="뒤로가기" />
       </button>
-      <h1 className="signup-title">회원가입</h1>
-      <form className="signup-form" onSubmit={handleRegister}>
 
+      <h1 className="signup-title">회원가입</h1>
+
+      <form className="signup-form" onSubmit={handleRegister}>
+        {/* 이메일 */}
         <div className="form-group">
-          <label>ID:</label>
+          <label>Email:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="email"
-            name="id"
-            value={formData.id}
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
 
+        {/* 비밀번호 */}
         <div className="form-group">
-          <label>PW:</label>
+          <label>Password:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="password"
             name="password"
             value={formData.password}
@@ -103,15 +102,11 @@ const SignupPage = () => {
           />
         </div>
 
+        {/* 비밀번호 확인 */}
         <div className="form-group">
-          <label>
-            PW 확인:
-            <button type="button" className="check-button" onClick={handlePasswordCheck}>
-              OK
-            </button>
-          </label>
+          <label>Confirm Password:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -120,10 +115,11 @@ const SignupPage = () => {
           />
         </div>
 
+        {/* 이름 */}
         <div className="form-group">
-          <label>이름:</label>
+          <label>Name:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="text"
             name="name"
             value={formData.name}
@@ -132,22 +128,24 @@ const SignupPage = () => {
           />
         </div>
 
+        {/* 전화번호 */}
         <div className="form-group">
-          <label>닉네임:</label>
+          <label>Phone:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="text"
-            name="nickname"
-            value={formData.nickname}
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             required
           />
         </div>
 
+        {/* 주소 */}
         <div className="form-group">
-          <label>주소:</label>
+          <label>Address:</label>
           <input
-            className='login-input'
+            className="login-input"
             type="text"
             name="address"
             value={formData.address}
@@ -156,7 +154,13 @@ const SignupPage = () => {
           />
         </div>
 
-        <button type="submit" className="submit-button">회원가입</button>
+        {/* 에러 메시지 */}
+        {error && <p className="error-message">{error}</p>}
+
+        {/* 회원가입 버튼 */}
+        <button type="submit" className="submit-button" disabled={isLoading}>
+          {isLoading ? 'Processing...' : '회원가입'}
+        </button>
       </form>
     </div>
   );

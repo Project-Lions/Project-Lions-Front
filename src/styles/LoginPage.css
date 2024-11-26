@@ -3,8 +3,7 @@
   height: 852px;  
   background-image: url('../images/background.png');
   margin: 0 auto;
-
-
+  font-family: 'Gamja Flower';
 }
 .login-page {
     display: flex;
@@ -12,7 +11,6 @@
     align-items: center;
     padding: 20px;
     height: 100vh;
-    font-family: 'Gamja Flower';
 
   }
   
@@ -41,6 +39,7 @@
   }
   
   .login-input{
+    font-family: 'Gamja Flower';
     padding: 10px;
     width: 250px;
     background: #FFFFFF;
@@ -50,6 +49,7 @@
     font-size: 16px;
   }
   .login-btn{
+    font-family: 'Gamja Flower';
   display: flex; 
   width: 126px;
   height: 30px;
