@@ -1,15 +1,14 @@
 
 .detail-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;  
+    width: 393px;
+    height: 852px;  
+    background-image: url('../images/background.png');
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Gamja Flower';
-    background-image: url('../images/background.png');
 }
 
 .backButton{
