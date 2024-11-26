@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/MarkedShop.css';
 import buttonImage from '../images/arrow_back.png'
+import markedShop1 from '../images/shopImage1.png'
+import markedShop2 from '../images/shopImage2.png'
 
 const MarkedShop = ({ shops }) => {
   const [likedShops, setLikedShops] = useState([]);
@@ -10,20 +12,18 @@ const MarkedShop = ({ shops }) => {
 
   const testData = [
     {
-      shopName: "소품샵1",
-      latitude: "Decimal",
-      longitude: "Decimal",
-      openAt: "10:00",
-      closeAt: "22:00",
-      image: "String-url",
+      shopName: "옐로우 피치",
+      address: "동교로41길 4",
+      openAt: "13:00",
+      closeAt: "21:00",
+      image: markedShop1,
     },
     {
-      shopName: "소품샵2",
-      latitude: "Decimal",
-      longitude: "Decimal",
-      openAt: "11:00",
-      closeAt: "20:00",
-      image: "String-url",
+      shopName: "후카후카 스튜디오",
+      address: "동교로46길 13",
+      openAt: "13:00",
+      closeAt: "19::30",
+      image: markedShop2,
     },
   ];
 
@@ -66,7 +66,7 @@ const MarkedShop = ({ shops }) => {
           <div className="shop-word-sec">
             <div className="shop-name">{shop.shopName}</div>
             <br />
-            <div>주소</div>
+            <div>{shop.address}</div>
             <div className="shop-hours">
               매일
               <br />
