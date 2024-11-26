@@ -1,10 +1,11 @@
 .mypage-container {
-    width: 100%;
-    max-width: 400px;  
-    margin: 0 auto;
     text-align: center;
     align-items: center;
     font-family: 'Gamja Flower';
+    width: 393px;
+    height: 852px;  
+    background-image: url('../images/background.png');
+    margin: 0 auto;
 
   }
   

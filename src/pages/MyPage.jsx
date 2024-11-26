@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/MyPage.css';
 import mypageImg from '../images/mypageimg.svg';
+import buttonImage from '../images/arrow_back.png'
+
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState({
@@ -93,6 +95,9 @@ const MyPage = () => {
 
   return (
     <div className="mypage-container">
+        <button onClick={() => navigate(-1)} className="backButton">
+        <img src={buttonImage} alt="back-button"/>
+      </button>
       <h1 className="signup-title">마이페이지</h1>
 
       <div className="profile-section">
