@@ -1,16 +1,13 @@
 .footer-container {
-  width: 100%;
+  width: 393px;
   height: 98px;
   display: flex;
   justify-content: space-evenly; 
   align-items: center;
   background-color: #BBB5B0;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto; /* 불필요한 margin 제거 */
-}
+  margin-top: 90px;
+ }
 
 .footer-button {
   text-align: center;

@@ -1,14 +1,15 @@
 .chat-container {
-    width: 100%;
-    max-width: 400px;  
-    margin: 0 auto;
-    text-align: center;  
-    font-family: 'Gamja Flower';
-
+  width: 393px;
+  height: 852px;  
+  background-image: url('../images/background.png');
+  margin: 0 auto;
+  text-align: center;  
+  font-family: 'Gamja Flower';
   }
 
+
 .chat-icon {
-    margin-top: 62px;
+    margin-top: 15px;
   }
  
 .hr1 {
@@ -48,7 +49,7 @@ border: 2px solid black;
     flex: 1;
     overflow-y: auto;
     margin: 5px 0;
-    height: 500px;
+    height: 450px;
   }
   
   .message {

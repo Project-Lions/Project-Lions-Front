@@ -1,10 +1,9 @@
 .shop-list {
     width: 100%;
     max-width: 400px;
-    height: 100vh;  
+    height: 852px;  
     margin: 0 auto;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Gamja Flower';
@@ -19,7 +18,6 @@
     margin-right: 300px;
     border: none;
     padding: 0;
-
 }
 
 .backButton img {

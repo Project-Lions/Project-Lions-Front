@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import "../styles/ChatPage.css";
 import chatMenuIcon from "../images/chat.svg";
 import chatSendIcon from "../images/chatsend.svg";
+import buttonImage from '../images/arrow_back.png'
+
 
 const API_BASE_URL = 'http://localhost:3000/api/chat';
 
@@ -10,6 +14,8 @@ function ChatPage() {
   const [input, setInput] = useState(""); 
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null); 
+  const navigate = useNavigate();
+
 
   // 인증 토큰 (백엔드에서 필요한 경우 실제 토큰을 가져와야 함)
   const accessToken = "your_access_token_here";  // 실제 인증 토큰을 사용해야 합니다
@@ -51,8 +57,8 @@ function ChatPage() {
           { sender: "bot", text: botResponse.message }, 
         ]);
       } catch (error) {
-        console.error("Error sending message: ", error);
-        setError('Error sending message'); 
+        console.error(" sending message: ", error);
+        setError(' sending message'); 
       } finally {
         setLoading(false); 
       }
@@ -67,6 +73,9 @@ function ChatPage() {
 
   return (
     <div className="chat-container">
+         <button onClick={() => navigate(-1)} className="backButton">
+        <img src={buttonImage} alt="back-button"/>
+      </button>
       <div className="chat-header">
         <img src={chatMenuIcon} alt="Chat Icon" className="chat-icon" />
         <h2>Chatting</h2>

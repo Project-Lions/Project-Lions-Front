@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { sign } from '../api/sign';
 import { checkDuplicateId } from '../api/checkDuplicateId';
+import buttonImage from '../images/arrow_back.png'
+
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -99,6 +101,9 @@ const SignupPage = () => {
 
   return (
     <div className="signup-container">
+          <button onClick={() => navigate(-1)} className="backButton">
+        <img src={buttonImage} alt="back-button"/>
+      </button>
       <h1 className="signup-title">회원가입</h1>
       <form className="signup-form" onSubmit={handleRegister}>
 

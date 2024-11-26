@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as LoginCatIcon } from '../images/logincat.svg'; // logincat.svg를 ReactComponent로 임포트
 import '../styles/LoginPage.css';
+import buttonImage from '../images/arrow_back.png'
+
 
 function LoginPage() {
   const [id, setId] = useState('');
@@ -19,7 +21,11 @@ function LoginPage() {
   };
 
   return (
+    <div className='login-wide'>
     <div className="login-page">
+    <button onClick={() => navigate(-1)} className="backButton">
+        <img src={buttonImage} alt="back-button"/>
+      </button>
       <LoginCatIcon className="login-cat-icon" />
       
       <h2 className="login-text">로그인</h2>
@@ -36,8 +42,9 @@ function LoginPage() {
         <Link to="/find-id-pw" className="footer-link">ID/PW 찾기</Link>
         <Link to="/signup" className="footer-link">회원가입</Link>
       </div>
-    </div>
+    </div></div>
   );
+  
 }
 
 export default LoginPage;

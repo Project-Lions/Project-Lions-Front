@@ -1,15 +1,18 @@
-.signup-container {
-  width: 100%;
-  max-width: 400px;  
+.signup-container {  
   margin: 0 auto;
   font-family: 'Gamja Flower';
+  width: 393px;
+  height: 852px;  
+  background-image: url('../images/background.png');
+  padding: 20px;
+
 
 }
 
 .signup-title {
   text-align: center;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 4cqh;
   font-size: 20px;
 }
 

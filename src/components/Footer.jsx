@@ -9,8 +9,11 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-button">
+      <Link to="/shop-list" className="footer-link">
         <img src={icon1} alt="아이콘 1" className="footer-icon" />
         <p>주변 소품샵 정보</p>
+        </Link>
+
       </div>
       <div className="footer-button">
         <Link to="/marked" className="footer-link">
