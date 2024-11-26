@@ -9,7 +9,7 @@
 
 
 .chat-icon {
-    margin-top: 15px;
+    margin-top: 5px;
   }
  
 .hr1 {
@@ -49,7 +49,7 @@ border: 2px solid black;
     flex: 1;
     overflow-y: auto;
     margin: 5px 0;
-    height: 480px;
+    height: 500px;
   }
   
   .message {
