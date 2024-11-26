@@ -3,19 +3,62 @@ import "../styles/ChatPage.css";
 import chatMenuIcon from "../images/chat.svg";
 import chatSendIcon from "../images/chatsend.svg";
 
-function ChatPage() {
-  const [messages, setMessages] = useState([]); // 메시지를 저장할 상태
-  const [input, setInput] = useState(""); // 입력 필드의 상태
+const API_BASE_URL = 'http://localhost:3000/api/chat';
 
-  // 메시지를 추가하는 함수
-  const handleSendMessage = () => {
+function ChatPage() {
+  const [messages, setMessages] = useState([]); 
+  const [input, setInput] = useState(""); 
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null); 
+
+  // 인증 토큰 (백엔드에서 필요한 경우 실제 토큰을 가져와야 함)
+  const accessToken = "your_access_token_here";  // 실제 인증 토큰을 사용해야 합니다
+  const receiverId = 2;  // 예시로 받은 사람의 ID (이 값은 실제로 동적으로 받아와야 할 수 있음)
+
+  // 메시지를 백엔드에 보내는 함수
+  const handleSendMessage = async () => {
     if (input.trim() !== "") {
-      setMessages([...messages, { sender: "user", text: input }]); // 메시지 추가
-      setInput(""); // 입력 필드 초기화
+      const userMessage = { sender: "user", text: input };
+      setMessages([...messages, userMessage]);
+      setInput(""); 
+
+      setLoading(true); 
+      try {
+        // 백엔드에 메시지 전송
+        const response = await fetch(API_BASE_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Auth': accessToken,  
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            receiverId: receiverId,  // 채팅 상대의 ID
+            message: input,          // 사용자 메시지
+          }), 
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text(); 
+          console.error("API Error: ", response.status, errorText);
+          throw new Error(`Failed to send message: ${response.status} ${errorText}`);
+        }
+
+        // 봇의 응답 메시지 처리
+        const botResponse = await response.json();
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: botResponse.message }, 
+        ]);
+      } catch (error) {
+        console.error("Error sending message: ", error);
+        setError('Error sending message'); 
+      } finally {
+        setLoading(false); 
+      }
     }
   };
 
-  // Enter 키로 메시지를 전송하는 함수
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSendMessage();
@@ -39,10 +82,13 @@ function ChatPage() {
             {message.sender === "bot" && (
               <img src="bot-avatar.png" alt="Bot Avatar" className="avatar" />
             )}
-            <pchat className="chatp">{message.text}</pchat>
+            <p className="chatp">{message.text}</p>
           </div>
         ))}
       </div>
+
+      {loading && <p>Loading...</p>}
+      {error && <p className="error">{error}</p>}
 
       <div className="chat-input">
         <hr className="hr2" />
@@ -50,8 +96,8 @@ function ChatPage() {
           type="text"
           placeholder="  메시지 보내기..."
           value={input}
-          onChange={(e) => setInput(e.target.value)} // 입력 필드 상태 업데이트
-          onKeyPress={handleKeyPress} // Enter 키 감지
+          onChange={(e) => setInput(e.target.value)} 
+          onKeyPress={handleKeyPress} 
         />
         <button className="send-button" onClick={handleSendMessage}>
           <img src={chatSendIcon} alt="Send" className="send-icon" />
