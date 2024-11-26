@@ -1,12 +1,14 @@
 .shop-list {
     width: 100%;
-    max-width: 400px;  
+    max-width: 400px;
+    height: 100vh;  
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Gamja Flower';
+    background-image: url('../images/background.png');
 }
 
 .backButton{
@@ -56,7 +58,7 @@
     text-align: center;
     align-items: center;
     flex-direction: column;
-    margin-right: 5px;
+    margin-right: 27px;
     margin-left: 5px;
 }
 

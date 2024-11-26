@@ -1,13 +1,15 @@
 
 .detail-container {
     width: 100%;
-    max-width: 400px;  
+    max-width: 400px;
+    height: 100vh;  
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Gamja Flower';
+    background-image: url('../images/background.png');
 }
 
 .backButton{
@@ -105,7 +107,8 @@
     height: 36px;
     z-index: 1000;
     margin-left: -295px;
-    margin-bottom: -55px;
+    margin-top: 20px;
+    margin-bottom: -60px;
 }
 
 .chat-btn{
@@ -114,7 +117,7 @@
     height: 33px;
     z-index: 100;
     margin-right: -300px;
-    margin-bottom: -45px;
+    margin-bottom: -40px;
     border: none;
     padding: 0;
 
