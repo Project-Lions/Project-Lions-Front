@@ -80,6 +80,14 @@ const SignupPage = () => {
 
       if (response.isSuccess) {
         alert(response.message || '회원가입 성공!');
+        // 사용자 정보 로컬스토리지에 저장
+        localStorage.setItem('userInfo', JSON.stringify({
+          id: formData.id,
+          password: formData.password,
+          name: formData.name,
+          nickname: formData.nickname,
+        }));
+
         navigate('/login');
       } else {
         alert(response.message || '회원가입 실패! 다시 시도해주세요.');
@@ -102,7 +110,7 @@ const SignupPage = () => {
                     </button>
                 </label>
                 <input
-                    className='signup-input'
+                    className='login-input'
                     type="email"
                     name="id"
                     value={formData.id}
@@ -114,7 +122,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>PW:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="password"
             name="password"
             value={formData.password}
@@ -131,7 +139,7 @@ const SignupPage = () => {
             </button>
         </label>
         <input
-            className='signup-input'
+            className='login-input'
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -143,7 +151,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>이름:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="text"
             name="name"
             value={formData.name}
@@ -155,7 +163,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>닉네임:</label>
           <input
-            className='signup-input'
+            className='login-input'
             type="text"
             name="nickname"
             value={formData.nickname}
@@ -167,7 +175,7 @@ const SignupPage = () => {
         <div className="form-group">
           <label>주소:</label>
           <input
-           className='signup-input'
+           className='login-input'
             type="text"
             name="address"
             value={formData.address}

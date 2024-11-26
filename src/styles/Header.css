@@ -1,9 +1,8 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 15px 20px;
-
 }
 
 .login-icon {
@@ -13,3 +12,9 @@
   cursor: pointer;
 }
 
+@media (max-width: 393px) {
+  .header {
+    flex-direction: row;
+    padding: 10px;
+  }
+}
